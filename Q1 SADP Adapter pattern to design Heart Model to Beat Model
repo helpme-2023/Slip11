@@ -1,0 +1,54 @@
+Write a java program to implement Adapter pattern to design Heart Model to Beat Model
+
+// HeartModel.java
+public interface HeartModel {
+    int getHeartRate();
+}
+
+// Heart.java
+public class Heart implements HeartModel {
+    private int heartRate;
+
+    public Heart(int initialHeartRate) {
+        this.heartRate = initialHeartRate;
+    }
+
+    @Override
+    public int getHeartRate() {
+        return heartRate;
+    }
+}
+
+// BeatModel.java
+public interface BeatModel {
+    int getBeatsPerMinute();
+}
+
+// HeartAdapter.java (Adapter class)
+public class HeartAdapter implements BeatModel {
+    private HeartModel heartModel;
+
+    public HeartAdapter(HeartModel heartModel) {
+        this.heartModel = heartModel;
+    }
+
+    @Override
+    public int getBeatsPerMinute() {
+        // Adapt HeartModel's getHeartRate to BeatModel's getBeatsPerMinute
+        return heartModel.getHeartRate();
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create a Heart model
+        Heart heart = new Heart(75);
+
+        // Adapt Heart model to BeatModel using the Adapter
+        BeatModel beatModel = new HeartAdapter(heart);
+
+        // Use BeatModel methods
+        System.out.println("Beats per minute: " + beatModel.getBeatsPerMinute());
+    }
+}
