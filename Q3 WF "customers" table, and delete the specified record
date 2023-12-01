@@ -18,9 +18,13 @@ result.affectedRows);
 });
 ----------------------------------------------------------------------------------------------------------------------
 Execution Steps –
-1) Save the file and run the script using Node.js: node database_operations.js
-2) The script will connect to your MySQL database, select all records from the "customers" table, and
-then delete the specified record based on your condition.
-3) The execution will output the selected records and the number of deleted records.
-4) Finally, it will close the database connection.
-Number of records deleted: 0
+Npm install mysql
+1) write code in vs code
+2) create database in mysql workbench 
+3) create database customers;
+use customers;
+CREATE TABLE customers(name VARCHAR(50), address VARCHAR(50);
+insert into customers values("ram","pune);
+4) execute query --> select single query to execute it
+5) go to vs code --> run program --> node prog name
+6)DELETE FROM customers WHERE address = 'pune' --> execute this in mysql workbench
